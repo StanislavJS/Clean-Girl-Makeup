@@ -2,6 +2,7 @@ import './css/styles.css';
 import './js/menu.js';
 import './js/artists.js';
 import './js/reviews.js';
+import './js/reveal.js';
 import './js/footer.js';
 
 window.addEventListener('load', () => {
