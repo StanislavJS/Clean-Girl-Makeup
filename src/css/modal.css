@@ -1,424 +1,132 @@
-.hidden {
-  display: none !important;
-}
+/* ================= DARK MODAL PRO ================= */
 
-.modal-loader {
+.feedback-modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(6, 3, 7, 0.8);
+  inset: 0;
+  background: rgba(5, 5, 10, 0.85);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9000;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.feedback-modal-backdrop.is-hidden {
+  opacity: 0;
   pointer-events: none;
 }
 
-.spinner {
-  width: 48px;
-  height: 48px;
-  border: 5px solid rgba(255, 255, 255, 0.2);
-  border-top: 5px solid #fff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  display: inline-block;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.visually-hidden {
-  display: none;
-}
-
-body.modal-open {
-  overflow: hidden;
-  position: fixed;
+.feedback-modal {
   width: 100%;
+  max-width: 540px;
+  padding: 56px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #141419, #0d0d12);
+  box-shadow:
+    0 60px 160px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.482);
+/* Close */
+
+.feedback-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #777;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.feedback-close-btn:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Title */
+
+.feedback-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Form layout */
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Inputs */
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1a1a22;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.25s ease;
+}
+
+.feedback-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #d4a5ff;
+  box-shadow: 0 0 0 4px rgba(212, 165, 255, 0.1);
+}
+
+/* Stars */
+
+.rating-star {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0 16px;
-  z-index: 1000;
+  gap: 8px;
 }
 
-.modal-content {
-  background-color: #060307;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 288px;
-  margin: 0 auto;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 52px 8px;
-  position: relative;
-
-  scrollbar-width: thin;
-  scrollbar-color: #764191 #1e1c1f;
-}
-
-.modal-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background-color: #1e1c1f;
-  border-radius: 5px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background-color: #764191;
-  border-radius: 8px;
-}
-
-.modal-body {
-  overflow: visible;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: transparent;
-  border: none;
+.rating-star .star {
+  font-size: 26px;
+  color: #444;
   cursor: pointer;
-  z-index: 10;
+  transition: 0.25s ease;
 }
 
-.modal-close svg {
-  fill: #ffffff;
+.rating-star .star.active {
+  color: #d4a5ff;
+  text-shadow: 0 0 10px rgba(212, 165, 255, 0.5);
 }
 
-.artist-title {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  text-align: center;
+/* Button */
 
-  margin-bottom: 16px;
-}
-
-.modal-artist-info {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.artist-img-container img {
-  width: 272px;
-  height: 167px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-.artist-top {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.artist-meta-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.artist-meta-list li {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+.feedback-submit-btn {
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #fff;
+  background: linear-gradient(135deg, #d4a5ff, #a855f7);
+  color: #111;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.artist-meta-list p {
-  font-weight: 400;
-}
-
-/* Біографія */
-
-.artist-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.artist-biography {
-  width: 272px;
-}
-
-.artist-biography-title {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.artist-biography-desc {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-
-  max-height: 220px;
-  overflow-y: auto;
-  padding-right: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: #764191 #1e1c1f;
-}
-
-.artist-biography-desc::-webkit-scrollbar {
-  width: 6px;
-}
-
-.artist-biography-desc::-webkit-scrollbar-track {
-  background-color: #1e1c1f;
-  border-radius: 5px;
-}
-
-.artist-biography-desc::-webkit-scrollbar-thumb {
-  background-color: #764191;
-  border-radius: 8px;
-}
-
-/* Жанри */
-.artist-genres {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.genre-item {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 4px 10px;
-  height: 32px;
-
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.albums-title {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  margin-bottom: 16px;
-}
-
-.albums-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-.album {
-  background-color: #1e1c1f;
-  border-radius: 16px;
-  padding: 14px 11px;
-  width: 272px;
-  min-width: 250px;
-}
-
-.album-title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.track-header {
-  display: flex;
-  justify-content: space-between;
-
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 4px 12px 4px 16px;
-
-  font-weight: 600;
-  font-size: 8px;
-  line-height: 1.5;
-}
-
-.track-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  padding: 8px 12px;
-
-  transition: background-color 0.2s ease;
-
-  font-weight: 400;
-  font-size: 12px;
-
-  line-height: 1.5;
-}
-
-.track-item:nth-child(even) {
-  background-color: transparent;
-}
-
-.track-item:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.track-name {
-  flex: 2;
-}
-
-.track-duration {
-  flex: 1;
-}
-
-/* Кнопка/посилання */
-.track-link {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.track-link svg {
-  fill: #fff;
-  transition: transform 0.2s ease;
-}
-
-.track-link:hover svg {
-  fill: #a855f7;
-  transform: scale(1.1);
-}
-
-/* Порожня кнопка/іконка */
-.track-link.empty {
-  color: #666;
-  font-size: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .modal {
-    padding: 0 33px;
-  }
-  .modal-content {
-    max-width: 702px;
-    padding: 64px 24px;
-  }
-
-  .modal-close {
-    right: 47px;
-  }
-
-  .artist-title {
-    font-size: 32px;
-
-    margin-bottom: 48px;
-  }
-
-  .artist-img-container img {
-    width: 654px;
-    height: 402px;
-  }
-
-  .artist-top {
-    gap: 24px;
-  }
-
-  .artist-meta-list {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-
-    gap: 24px;
-  }
-
-  .artist-bottom {
-    gap: 24px;
-  }
-
-  .artist-biography {
-    width: 654px;
-  }
-
-  .artist-genres {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-
-  .albums-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .album {
-    width: calc((100% - 32px) / 2);
-    min-width: 311px;
-  }
-
-  .track-item {
-    padding: 7px 12px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .modal {
-    padding: 64px;
-  }
-
-  .modal-content {
-    max-width: 1312px;
-    padding: 64px;
-  }
-
-  .modal-close {
-    right: 16px;
-  }
-
-  .modal-artist-info {
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-  }
-
-  .artist-img-container img {
-    width: 576px;
-    height: 354px;
-  }
-
-  .artist-biography {
-    width: 576px;
-  }
-
-  .artist-biography-desc {
-    max-height: 135px;
-  }
-
-  .albums-list {
-    /* grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); */
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .album {
-    width: calc((100% - 96px) / 4);
-    min-width: 272px;
-  }
+.feedback-submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.4);
 }
