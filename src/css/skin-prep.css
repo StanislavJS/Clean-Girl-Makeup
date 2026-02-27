@@ -1,0 +1,119 @@
+/* ================= SKIN PREP SECTION ================= */
+
+.about {
+  padding: 140px 0;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+  transition:
+    opacity 800ms ease,
+    transform 800ms ease;
+}
+
+/* только если JS добавил класс */
+.about.reveal {
+  transform: translateY(40px);
+}
+
+.about.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Layout */
+
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Image */
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+
+  transition:
+    transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 600ms ease;
+}
+
+.about-image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 60px 140px rgba(0, 0, 0, 0.55);
+}
+
+/* Text */
+
+.about-text-container {
+  max-width: 520px;
+}
+
+.about-icon {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-accent);
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.about-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.4px;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Subtle reveal animation */
+
+.about {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms ease;
+}
+
+.about.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .about-wrapper {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 100px 0;
+  }
+
+  .about-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-text-container {
+    max-width: 100%;
+  }
+}
