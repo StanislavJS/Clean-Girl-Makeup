@@ -1,6 +1,6 @@
 .about {
   padding: 32px 0 64px;
-  background: var(--color-scheme-1-background);
+  background: var(--color-bg-secondary);
 }
 
 .about-wrapper {
@@ -17,12 +17,12 @@
 }
 
 .about-title {
-  font-family: var(--second-family);
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
   font-size: 44px;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: var(--color-scheme-1-text);
+  color: var(--color-text-primary);
   margin-bottom: 20px;
 }
 

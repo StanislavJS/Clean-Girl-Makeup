@@ -1,21 +1,49 @@
 /**
   |============================
-  | include css partials with
-  | default @import url()
+  | GLOBAL LAYER
   |============================
 */
-/* Common styles */
+
+/* Reset */
 @import url('./reset.css');
+
+/* Base typography & root */
 @import url('./base.css');
+
+/* Layout system */
 @import url('./container.css');
+@import url('./layout.css');
+@import url('./utilities.css');
+
+/* Animations */
 @import url('./animations.css');
 
-/* Sections style */
+/**
+  |============================
+  | COMPONENTS
+  |============================
+*/
+
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./artists.css');
 @import url('./about-us.css');
+@import url('./guide.css');
+
+/**
+  |============================
+  | MODALS
+  |============================
+*/
+
+@import url('./modal.css');
 @import url('./feedback.css');
 @import url('./feedback-modal.css');
-@import url('./modal.css');
+
+/**
+  |============================
+  | FOOTER (всегда последним)
+  |============================
+*/
+
 @import url('./footer.css');
