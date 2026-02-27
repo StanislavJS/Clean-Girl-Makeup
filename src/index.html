@@ -1,75 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="lt">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ArtistsHub</title>
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.css"
-    /></noscript>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    <title>Clean Girl Makeup</title>
+
+    <meta
+      name="description"
+      content="Clean Girl Makeup – natūralaus makiažo gidas paaugliams."
     />
 
-    <style>
-      .hero-header {
-        font-family: 'Epilogue', sans-serif;
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 1.1;
-        letter-spacing: -0.01em;
-        color: #fff;
-        margin-bottom: 20px;
-      }
-    </style>
+    <meta property="og:title" content="Clean Girl Makeup" />
+    <meta
+      property="og:description"
+      content="Natūralus ir lengvas makiažo gidas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/preview.jpg" />
+    <meta property="og:url" content="https://yourdomain.lt/" />
 
-    <link rel="stylesheet" href="./css/styles.css" />
+    <meta name="theme-color" content="#0f0f14" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-      />
-    </noscript>
   </head>
+
   <body>
     <load src="./partials/header.html" />
 
     <main>
-      <!-- Loads the specified .html file -->
       <load src="./partials/hero.html" />
-      <load src="./partials/artists.html" />
-      <load src="./partials/about-us.html" />
-      <load src="./partials/feedback.html" />
-
-      <load src="./partials/modal.html" />
+      <load src="./partials/makeup-steps.html" />
+      <load src="./partials/skin-prep.html" />
+      <load src="./partials/products.html" />
     </main>
 
     <load src="./partials/footer.html" />
 
     <script type="module" src="./main.js"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-    ></script>
   </body>
 </html>
