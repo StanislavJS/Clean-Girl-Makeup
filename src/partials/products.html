@@ -1,0 +1,174 @@
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="container reviews-container">
+    <header class="reviews-header">
+      <h2 class="reviews-title" id="reviews-title">Atsiliepimai</h2>
+      <p class="reviews-subtitle">
+        Tikros patirtys apie „Clean Girl“ makiažo rutiną.
+      </p>
+    </header>
+
+    <div
+      class="swiper reviews-swiper"
+      aria-roledescription="carousel"
+      aria-label="Klientų atsiliepimai"
+      aria-live="off"
+    >
+      <div class="swiper-wrapper" id="feedbacks-container" aria-live="polite">
+        <!-- JS вставляет отзывы -->
+      </div>
+
+      <div class="reviews-nav">
+        <button
+          type="button"
+          class="reviews-prev js-testimonials-btn-prev"
+          aria-label="Ankstesnis atsiliepimas"
+        >
+          <svg width="20" height="20" aria-hidden="true" focusable="false">
+            <use href="/images/sprite.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <div class="swiper-pagination" aria-hidden="true"></div>
+
+        <button
+          type="button"
+          class="reviews-next js-testimonials-btn-next"
+          aria-label="Kitas atsiliepimas"
+        >
+          <svg width="20" height="20" aria-hidden="true" focusable="false">
+            <use href="/images/sprite.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="reviews-cta">
+      <button
+        class="reviews-open-btn"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="feedback-modal"
+      >
+        Palikti atsiliepimą
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div
+    class="feedback-modal-backdrop is-hidden"
+    id="feedback-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="feedback-title"
+  >
+    <div class="feedback-modal" role="document">
+      <button
+        type="button"
+        class="feedback-close-btn"
+        aria-label="Uždaryti dialogą"
+      >
+        &times;
+      </button>
+
+      <h3 class="feedback-title" id="feedback-title">
+        Pasidalink savo patirtimi
+      </h3>
+
+      <form class="feedback-form" novalidate>
+        <label class="visually-hidden" for="feedback-name"> Vardas </label>
+        <input
+          id="feedback-name"
+          type="text"
+          name="name"
+          placeholder="Vardas"
+          required
+          maxlength="40"
+          autocomplete="name"
+        />
+
+        <label class="visually-hidden" for="feedback-message">
+          Atsiliepimas
+        </label>
+        <textarea
+          id="feedback-message"
+          name="message"
+          placeholder="Parašyk savo įspūdžius..."
+          required
+          maxlength="300"
+        ></textarea>
+
+        <!-- RATING -->
+        <div
+          class="rating-star"
+          id="modal-rating"
+          role="radiogroup"
+          aria-label="Įvertinimas žvaigždutėmis"
+        >
+          <button
+            type="button"
+            class="star"
+            role="radio"
+            aria-checked="false"
+            tabindex="0"
+            data-value="1"
+            aria-label="1 žvaigždutė"
+          >
+            ★
+          </button>
+
+          <button
+            type="button"
+            class="star"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            data-value="2"
+            aria-label="2 žvaigždutės"
+          >
+            ★
+          </button>
+
+          <button
+            type="button"
+            class="star"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            data-value="3"
+            aria-label="3 žvaigždutės"
+          >
+            ★
+          </button>
+
+          <button
+            type="button"
+            class="star"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            data-value="4"
+            aria-label="4 žvaigždutės"
+          >
+            ★
+          </button>
+
+          <button
+            type="button"
+            class="star"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            data-value="5"
+            aria-label="5 žvaigždutės"
+          >
+            ★
+          </button>
+        </div>
+
+        <button type="submit" class="feedback-submit-btn">Siųsti</button>
+      </form>
+    </div>
+  </div>
+</section>

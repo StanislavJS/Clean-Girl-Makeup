@@ -1,29 +1,50 @@
 <header class="header">
   <div class="container header-container">
-    <a class="header-logo" href="#" aria-label="main-page-header">
-      <svg class="logo" width="119" height="51">
-        <use href="./images/sprite.svg#icon-Content-logo"></use>
-      </svg>
+    <a class="header-logo" href="/">
+      <span class="logo-text">Clean Girl Makeup</span>
     </a>
 
-    <nav class="page-nav">
+    <nav class="page-nav" aria-label="Pagrindinė navigacija">
       <button
         type="button"
         class="burger-toggle js-toggle"
-        aria-label="Toggle menu"
+        aria-label="Atidaryti meniu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
       >
-        <svg class="burger-icon js-burger-icon" width="24" height="24">
-          <use href="./images/sprite.svg#icon-icon-burger-new"></use>
+        <svg
+          class="burger-icon js-burger-icon"
+          width="24"
+          height="24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href="/images/sprite.svg#icon-icon-burger-new"></use>
         </svg>
-        <svg class="close-icon js-close-icon hidden" width="36" height="36">
-          <use href="./images/sprite.svg#icon-menu-close"></use>
+
+        <svg
+          class="close-icon js-close-icon hidden"
+          width="36"
+          height="36"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href="/images/sprite.svg#icon-menu-close"></use>
         </svg>
       </button>
 
-      <ul class="nav-list js-nav-list">
-        <li><a href="#artists" class="nav-button">Artist</a></li>
-        <li><a href="#about" class="nav-button">About Us</a></li>
-        <li><a href="#reviews" class="nav-button">Reviews</a></li>
+      <ul id="primary-navigation" class="nav-list js-nav-list">
+        <li>
+          <a href="/#skin-prep" class="nav-button"> Odos paruošimas </a>
+        </li>
+        <li>
+          <a href="/guide/clean-girl-pagrindas.html" class="nav-button">
+            Makiažo žingsniai
+          </a>
+        </li>
+        <li>
+          <a href="/#products" class="nav-button"> Produktai </a>
+        </li>
       </ul>
     </nav>
   </div>
