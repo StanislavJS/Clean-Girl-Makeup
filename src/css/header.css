@@ -1,123 +1,135 @@
+/* ===== STICKY HEADER (stable & smooth) ===== */
+
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
-  background: #060307;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  background: rgba(15, 15, 20, 0.85);
+  border-bottom: 1px solid var(--color-border-soft);
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
+/* Container */
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
-  padding: 0 16px;
+  height: var(--header-height);
 }
+
+/* Logo */
 
 .header-logo {
-  display: flex;
-  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-text-primary);
+  text-decoration: none;
 }
 
-.logo {
-  fill: #764191;
-  display: block;
-}
+/* ===== Burger ===== */
 
 .burger-toggle {
+  background: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  border: none;
-  z-index: 1002;
 }
 
 .burger-icon,
 .close-icon {
-  fill: #fff;
-  transition: opacity 0.3s ease;
+  fill: var(--color-text-primary);
+  transition: fill 0.2s ease;
 }
 
 .burger-icon:hover,
-.burger-icon:focus,
-.close-icon:hover,
-.close-icon:focus {
-  fill: #8952a7;
+.close-icon:hover {
+  fill: var(--color-accent);
 }
 
-.hidden {
-  display: none;
-}
+/* ===== Mobile Navigation ===== */
+
+/* Вместо display:none — делаем transform */
 
 .nav-list {
-  display: none;
-}
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - var(--header-height));
 
-.nav-list.is-open {
+  background: var(--color-bg-primary);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 64px);
-  background-color: #060307;
-  gap: 32px;
+  justify-content: flex-start;
+
   padding-top: 40px;
-  z-index: 1001;
+  gap: 32px;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease;
+
+  will-change: transform;
 }
 
-.body-lock {
-  overflow: hidden;
+/* Открытое состояние */
+
+.nav-list.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
+
+/* ===== Nav Links ===== */
 
 .nav-button {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 500;
-  color: #fff;
-  background-color: transparent;
-  line-height: 1.5;
+  color: var(--color-text-primary);
+  text-decoration: none;
+
   transition: color 0.2s ease;
-  cursor: pointer;
 }
 
 .nav-button:hover,
-.nav-button:focus,
 .nav-button.active {
-  color: #8952a7;
+  color: var(--color-accent);
 }
 
-@media screen and (min-width: 768px) {
-  .header-container {
-    height: 72px;
-    padding: 0 64px;
-  }
+/* ===== Desktop ===== */
 
-  .burger-toggle,
-  .burger-icon,
-  .close-icon {
+@media (min-width: 768px) {
+  .burger-toggle {
     display: none;
   }
 
   .nav-list {
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-    background: none;
     position: static;
     height: auto;
-    padding: 0;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    flex-direction: row;
+    padding-top: 0;
+    gap: 32px;
+    background: transparent;
   }
 
   .nav-button {
-    font-size: 18px;
-  }
-
-  .logo {
-    fill: #fff;
+    font-size: 16px;
   }
 }
