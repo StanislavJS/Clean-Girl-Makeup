@@ -1,135 +1,152 @@
-/* ===== STICKY HEADER (stable & smooth) ===== */
+/* ================= HEADER ================= */
 
-.header {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
-  background: rgba(15, 15, 20, 0.85);
-  border-bottom: 1px solid var(--color-border-soft);
+  background: rgba(12, 12, 18, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  transition:
+    background 300ms ease,
+    border 300ms ease;
 }
 
-/* Container */
-
-.header-container {
+.header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: var(--header-height);
 }
 
-/* Logo */
+/* ===== Brand ===== */
 
-.header-logo {
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--color-text-primary);
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+}
+
+.brand-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px rgba(var(--color-accent-rgb), 0.6);
+}
+
+.brand-text {
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+  color: var(--color-text-primary);
+}
+
+/* ===== Navigation ===== */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Links ===== */
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color 200ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-text-primary);
+}
+
+/* subtle underline */
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 250ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  width: 100%;
 }
 
 /* ===== Burger ===== */
 
-.burger-toggle {
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
   background: none;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
 
-.burger-icon,
-.close-icon {
-  fill: var(--color-text-primary);
-  transition: fill 0.2s ease;
-}
-
-.burger-icon:hover,
-.close-icon:hover {
-  fill: var(--color-accent);
-}
-
-/* ===== Mobile Navigation ===== */
-
-/* Вместо display:none — делаем transform */
-
-.nav-list {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  width: 100%;
-  height: calc(100dvh - var(--header-height));
-
-  background: var(--color-bg-primary);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  padding-top: 40px;
-  gap: 32px;
-
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-
+.nav-toggle-line {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text-primary);
   transition:
-    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.25s ease;
-
-  will-change: transform;
+    transform 300ms ease,
+    opacity 200ms ease;
 }
 
-/* Открытое состояние */
+/* ===== Mobile ===== */
 
-.nav-list.is-open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ===== Nav Links ===== */
-
-.nav-button {
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-.nav-button:hover,
-.nav-button.active {
-  color: var(--color-accent);
-}
-
-/* ===== Desktop ===== */
-
-@media (min-width: 768px) {
-  .burger-toggle {
-    display: none;
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
   }
 
   .nav-list {
-    position: static;
-    height: auto;
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
-    flex-direction: row;
-    padding-top: 0;
-    gap: 32px;
-    background: transparent;
+    position: fixed;
+    inset: var(--header-height) 0 0 0;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+
+    background: rgba(10, 10, 15, 0.95);
+
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms ease;
   }
 
-  .nav-button {
-    font-size: 16px;
+  .nav-list.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 20px;
   }
 }
