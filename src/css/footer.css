@@ -1,12 +1,25 @@
-html {
-  scroll-behavior: smooth;
-}
+/* ================= FOOTER ================= */
 
 .footer {
-  padding: 48px 0 64px;
+  padding: 80px 0;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg-primary) 100%
+  );
+
+  border-top: 1px solid var(--color-border-soft);
+  color: var(--color-text-primary);
+
+  /* reveal animation */
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  will-change: transform, opacity;
 }
 
 .footer--visible {
@@ -14,86 +27,96 @@ html {
   transform: translateY(0);
 }
 
+/* ===== TOP ===== */
+
 .footer__top {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px; /* Це буде працювати як "геп" між .footer__top > * */
+  gap: 32px;
 }
 
 .footer__nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-  justify-content: center;
-  /* Видаляємо margin-top */
+  gap: 20px;
 }
 
 .footer__link {
+  font-weight: 500;
+  color: var(--color-text-primary);
   text-decoration: none;
-  font-weight: 600;
-  line-height: 1.5;
-  font-size: 16px;
-  transition: color 0.3s;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
-.footer__link:hover,
-.footer__link:focus {
-  color: #8952a7;
+.footer__link:hover {
+  color: var(--color-accent);
 }
+
+/* subtle underline animation */
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.footer__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===== BOTTOM ===== */
 
 .footer__bottom {
-  border-top: 1px solid#333;
+  border-top: 1px solid var(--color-border-soft);
   margin-top: 48px;
   padding-top: 24px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
-  width: 100%;
+  gap: 24px;
 }
 
 .footer__copy {
-  margin: 0;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  order: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
 }
+
+/* ===== SOCIALS ===== */
 
 .footer__socials {
   display: flex;
-  gap: 32px;
-  align-items: center;
-  order: -1;
-}
-
-.footer__logo-icon {
-  fill: #764191;
+  gap: 20px;
 }
 
 .footer__icon svg {
-  fill: #ffffff;
-  transition: fill 0.3s;
-  width: 40px;
-  height: 40px;
-
-  transition: transform 0.2s ease;
+  fill: var(--color-text-primary);
+  transition:
+    transform 0.2s ease,
+    fill 0.2s ease;
 }
 
 .footer__icon:hover svg {
-  fill: #a855f7;
-  transform: scale(1.1);
+  fill: var(--color-accent);
+  transform: translateY(-2px) scale(1.08);
 }
 
-@media only screen and (min-width: 768px) {
-  .footer {
-    padding: 80px 0 80px;
-  }
-  .footer__top > *:not(:last-child) {
-    /* margin-top: 32px; */
+/* ===== TABLET+ ===== */
+
+@media (min-width: 768px) {
+  .footer__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .footer__nav {
@@ -105,31 +128,20 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 80px;
-    border-top: 1px solid #333;
-    padding-top: 32px;
-  }
-
-  .footer__socials {
-    gap: 24px;
-    order: 1;
-  }
-
-  .footer__copy {
-    order: 0;
-  }
-  .footer__icon svg {
-    width: 32px;
-    height: 32px;
   }
 }
 
-@media only screen and (min-width: 1440px) {
-  .footer__nav {
-    gap: 32px;
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer {
+    transition: none;
+    transform: none;
+    opacity: 1;
   }
-  .footer__icon svg {
-    width: 24px;
-    height: 24px;
+
+  .footer__icon svg,
+  .footer__link::after {
+    transition: none;
   }
 }
