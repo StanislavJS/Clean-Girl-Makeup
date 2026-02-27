@@ -1,0 +1,135 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.footer {
+  padding: 48px 0 64px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.footer--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px; /* Це буде працювати як "геп" між .footer__top > * */
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  justify-content: center;
+  /* Видаляємо margin-top */
+}
+
+.footer__link {
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  color: #8952a7;
+}
+
+.footer__bottom {
+  border-top: 1px solid#333;
+  margin-top: 48px;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.footer__copy {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  order: 0;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  order: -1;
+}
+
+.footer__logo-icon {
+  fill: #764191;
+}
+
+.footer__icon svg {
+  fill: #ffffff;
+  transition: fill 0.3s;
+  width: 40px;
+  height: 40px;
+
+  transition: transform 0.2s ease;
+}
+
+.footer__icon:hover svg {
+  fill: #a855f7;
+  transform: scale(1.1);
+}
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    padding: 80px 0 80px;
+  }
+  .footer__top > *:not(:last-child) {
+    /* margin-top: 32px; */
+  }
+
+  .footer__nav {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    border-top: 1px solid #333;
+    padding-top: 32px;
+  }
+
+  .footer__socials {
+    gap: 24px;
+    order: 1;
+  }
+
+  .footer__copy {
+    order: 0;
+  }
+  .footer__icon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer__nav {
+    gap: 32px;
+  }
+  .footer__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}

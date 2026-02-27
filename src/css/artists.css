@@ -1,0 +1,370 @@
+.artists-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.artists-section-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.artists-section-subtitle {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  min-width: 288px;
+  height: 159px;
+  margin-bottom: 32px;
+}
+
+.artists-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.artist-card {
+  width: 100%;
+}
+
+.artist-card-img {
+  border-radius: 16px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: 177px;
+  object-fit: cover;
+  margin-bottom: 24px;
+}
+
+.artist-card-genres li {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: transparent;
+}
+
+.artist-card-genres {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.artist-card-name {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.artist-card-info {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.artist-card-btn,
+.load-more-btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.load-more-btn {
+  margin: 0 auto;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  margin: 0 auto;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background-color: #764191;
+  gap: 12px;
+}
+
+.load-more-btn:hover,
+.load-more-btn:focus {
+  background-color: #8952a7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3);
+}
+
+.artist-card-btn {
+  gap: 8px;
+  text-align: left;
+  padding: 0;
+}
+
+.load-more-btn-icon {
+  fill: #ffffff;
+}
+
+.artist-card-icon {
+  fill: #ffffff;
+}
+
+.artist-card-btn:hover,
+.artist-card-btn:focus {
+  color: #8952a7;
+}
+
+.artist-card-btn:hover .artist-card-icon,
+.artist-card-btn:focus .artist-card-icon {
+  fill: #8952a7;
+}
+
+@media screen and (min-width: 768px) {
+  .artists-section-subtitle {
+    width: 704px;
+    height: 106px;
+  }
+
+  .artists-list {
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .artists-list-item {
+    max-width: 704px;
+  }
+
+  .artist-card-img {
+    height: 393px;
+  }
+
+  .load-more-btn {
+    width: 340px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .artists-section {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .artists-section-subtitle {
+    font-size: 60px;
+    max-width: 863px;
+    height: 144px;
+    margin-bottom: 80px;
+  }
+
+  .artists-list {
+    justify-content: flex-start;
+  }
+
+  .artist-card {
+    flex-basis: calc((100% - 32px) / 2);
+  }
+
+  .artist-card-img {
+    height: 393px;
+  }
+
+  .load-more-btn {
+    width: 170px;
+  }
+}
+
+/* search filter */
+
+/* .filters-text {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.toggle-filters {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(6, 3, 7, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.filters-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.filters {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 12px;
+  width: 289px;
+  background: #1e1c1f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 12px;
+}
+
+.filters.hidden {
+  display: none;
+}
+
+.search-container {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  width: 265px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0);
+  margin-bottom: 12px;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  padding: 14px 0 14px 14px;
+}
+
+.search-input {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  border: none;
+  padding: 10px 12px;
+}
+
+.icon-search {
+  fill: #fff;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  width: 265px;
+  margin-bottom: 12px;
+  background-color: #1f1f1f;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 8px 18px 8px 12px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f;
+  border-radius: 0 0 12px 12px;
+  padding: 4px 0;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.dropdown-menu.hidden {
+  display: none;
+}
+
+/* ARROW */
+/* .icon-arrow-down {
+  transition: transform 0.3s ease;
+}
+
+.icon-arrow-down.rotate {
+  transform: rotate(180deg);
+} */
+
+/* search filter */

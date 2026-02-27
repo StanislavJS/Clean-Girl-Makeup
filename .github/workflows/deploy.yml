@@ -1,0 +1,28 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and build 🔧
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          npm cache clean --force
+          for i in 1 2 3; do
+            echo "Attempt $i to install dependencies..."
+            npm install && break || sleep 10
+          done
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: dist

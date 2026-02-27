@@ -1,0 +1,57 @@
+<section class="reviews scroll-target" id="reviews">
+  <div class="container reviews-container">
+    <div class="swiper feedback-swiper">
+      <div class="swiper-wrapper" id="feedbacks-container"></div>
+
+      <div class="feedback-prev js-testimonials-btn-prev">
+        <svg class="left-arrow-icon" width="24" height="24">
+          <use href="./images/sprite.svg#icon-left-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="feedback-next js-testimonials-btn-next">
+        <svg class="right-arrow-icon" width="24" height="24">
+          <use href="./images/sprite.svg#icon-right-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <div class="feedback-btn-wrapper">
+    <button class="feedback-open-btn" type="button">Leave feedback</button>
+  </div>
+
+  <div class="feedback-modal-backdrop is-hidden" id="feedback-modal">
+    <div class="feedback-modal">
+      <button type="button" class="feedback-close-btn" aria-label="Close modal">
+        &times;
+      </button>
+      <h2 class="feedback-title">Submit feedback</h2>
+
+      <form class="feedback-form">
+        <label>
+          <p class="form-label">Name</p>
+          <input type="text" placeholder="Emily" name="name" />
+        </label>
+
+        <label>
+          <p class="form-label">Message</p>
+          <textarea
+            name="message"
+            placeholder="Type your message..."
+            rows="4"
+          ></textarea>
+        </label>
+
+        <div class="rating-star" id="modal-rating">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+        <button type="submit" class="feedback-submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
